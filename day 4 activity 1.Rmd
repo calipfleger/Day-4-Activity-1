@@ -1,0 +1,26 @@
+---
+title: "Day 4 Activity 1"
+author: "Cali Pfleger"
+date: "9/24/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+## clean data and tidy to get premiun cut only
+
+```{r}
+diamonds_premium <- diamonds %>% filter(cut == "Premium")
+```
+
+## Make a plot that is carats vs price w/ point colors varied by the diffrent levels in "clarity"
+
+```{r}
+ggplot(data = diamonds_premium, aes(x = carat, y = price)) + geom_line(aes(color = carat))
+```
+
